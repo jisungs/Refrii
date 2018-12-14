@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RefriiViewController: UITableViewController {
+class ItemViewController: UITableViewController {
     
     let itemArray = ["first storage", "secondStorage", "ThirdStroage"]
 
@@ -39,7 +39,26 @@ class RefriiViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
+    //MARK: - Add New Item
     
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+     
+        let alert = UIAlertController(title:"Add New Item", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add Action", style: .default) { (action) in
+            
+            print("Success!!")
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Add New Item"
+            print(alertTextField.text)
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
 }
 

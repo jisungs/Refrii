@@ -12,7 +12,7 @@
         <!--Refrii-->
         <scene sceneID="sX5-Ur-1gc">
             <objects>
-                <tableViewController id="q1h-dx-zeK" customClass="RefriiViewController" customModule="Refrii" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="q1h-dx-zeK" customClass="ItemViewController" customModule="Refrii" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="a99-gj-tQ3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,11 +32,18 @@
                             <outlet property="delegate" destination="q1h-dx-zeK" id="kaA-HH-rfR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Refrii" id="iy7-QO-hj1"/>
+                    <navigationItem key="navigationItem" title="Refrii" id="iy7-QO-hj1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ySU-b4-Bmd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="q1h-dx-zeK" id="yB6-L1-xiG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hz-WU-2T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.8" y="83.208395802098963"/>
+            <point key="canvasLocation" x="1772" y="83"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X3F-En-8ZT">
