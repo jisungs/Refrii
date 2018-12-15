@@ -11,10 +11,16 @@ import UIKit
 class ItemViewController: UITableViewController {
     
     var itemArray = ["first storage", "secondStorage", "ThirdStroage"]
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let items = defaults.array(forKey: "ItemArray") as? [String] {
+            itemArray = items
+        }
+        
     }
 
     //MARK: - TableView DataSource Method
@@ -50,6 +56,8 @@ class ItemViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Action", style: .default) { (action) in
             
             self.itemArray.append(textField.text!)
+            
+            self.defaults.set(self.itemArray, forKey: "ItemArray")
             
             self.tableView.reloadData()
         }
