@@ -10,16 +10,21 @@ import UIKit
 
 class ItemViewController: UITableViewController {
     
-    var itemArray = ["first storage", "secondStorage", "ThirdStroage"]
+    var itemArray = [ItemModel]()
     
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = defaults.array(forKey: "ItemArray") as? [String] {
-            itemArray = items
-        }
+        let newItem = ItemModel()
+        newItem.itemName = "Lemon"
+        itemArray.append(newItem)
+        
+        
+//        if let items = defaults.array(forKey: "ItemArray") as? [String] {
+//            itemArray = items
+//        }
         
     }
 
@@ -30,9 +35,23 @@ class ItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RefriiItemCell", for: indexPath)
         
-        cell.textLabel?.text = itemArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        
+        let item = itemArray[indexPath.row]
+        
+        cell.textLabel?.text = item.itemName
+        
+        //Tenary Operator ==>
+        // value = conditino ? valueIfTrue : valueIfFalse
+        
+        cell.accessoryType = item.done ? .checkmark : .none
+        
+//        if item.done == true {
+//            cell.accessoryType = .checkmark
+//        }else {
+//            cell.accessoryType = .none
+//        }
         
         return cell
     }
@@ -41,6 +60,9 @@ class ItemViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        
+        tableView.reloadData()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -54,8 +76,12 @@ class ItemViewController: UITableViewController {
         let alert = UIAlertController(title:"Add New Item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Action", style: .default) { (action) in
+        
             
-            self.itemArray.append(textField.text!)
+            let newItem = ItemModel()
+            newItem.itemName = textField.text!
+            
+            self.itemArray.append(newItem)
             
             self.defaults.set(self.itemArray, forKey: "ItemArray")
             
