@@ -25,9 +25,7 @@ class ItemViewController: UITableViewController {
         itemArray.append(newItem)
         
         
-//        if let items = defaults.array(forKey: "ItemArray") as? [String] {
-//            itemArray = items
-//        }
+        loadItems()
         
     }
 
@@ -101,6 +99,9 @@ class ItemViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
+    //MARK: - Model Manupulation Methods
+    
     func saveItems(){
         let encoder = PropertyListEncoder()
         
@@ -114,6 +115,16 @@ class ItemViewController: UITableViewController {
      tableView.reloadData()
     }
     
+    func loadItems(){
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+            itemArray = try decoder.decode([ItemModel].self , from: data)
+        } catch {
+            print("Error docoding item array, \(error)")
+        }
+     }
+    }
     
 }
 
