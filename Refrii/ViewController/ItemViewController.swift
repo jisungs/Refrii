@@ -12,10 +12,13 @@ class ItemViewController: UITableViewController {
     
     var itemArray = [ItemModel]()
     
-    let defaults = UserDefaults.standard
+     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
+        print(dataFilePath)
         
         let newItem = ItemModel()
         newItem.itemName = "Lemon"
@@ -62,7 +65,7 @@ class ItemViewController: UITableViewController {
         
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
-        tableView.reloadData()
+        saveItems()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -83,8 +86,8 @@ class ItemViewController: UITableViewController {
             
             self.itemArray.append(newItem)
             
-            self.defaults.set(self.itemArray, forKey: "ItemArray")
-            
+            self.saveItems()
+           
             self.tableView.reloadData()
         }
         
@@ -97,6 +100,20 @@ class ItemViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func saveItems(){
+        let encoder = PropertyListEncoder()
+        
+        do{
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        }catch{
+            print("Error encoding itemes \(error)")
+        }
+        
+     tableView.reloadData()
+    }
+    
     
 }
 
