@@ -19,7 +19,7 @@ class ItemViewController: UITableViewController {
         super.viewDidLoad()
         
        print( FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-            
+        
         loadItems()
         
     }
@@ -112,8 +112,9 @@ class ItemViewController: UITableViewController {
      tableView.reloadData()
     }
     
-    func loadItems(){
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest()){
+        
+        //let request : NSFetchRequest<Item> = Item.fetchRequest()
         
         do {
              itemArray = try context.fetch(request)
@@ -123,5 +124,33 @@ class ItemViewController: UITableViewController {
         
     }
     
-}
+    
+    
+}// end of viewcontroller
 
+
+//MARK: - Search bar methods
+
+extension ItemViewController : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+       
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        
+
+        
+      request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
+        loadItems(with: request)
+        
+//        do {
+//            itemArray = try context.fetch(request)
+//        } catch {
+//            print("Error fetching data from context \(error)")
+//        }
+//
+//        tableView.reloadData()
+    }
+}
