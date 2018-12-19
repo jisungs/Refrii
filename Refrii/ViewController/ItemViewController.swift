@@ -13,20 +13,14 @@ class ItemViewController: UITableViewController {
     
     var itemArray = [Item]()
     
-     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         
-      //  print(dataFilePath)
-        
-//        let newItem = Item
-//        newItem.title = "Lemon"
-//        itemArray.append(newItem)
-       // loadItems()
+       print( FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+            
+        loadItems()
         
     }
 
@@ -61,6 +55,9 @@ class ItemViewController: UITableViewController {
     //MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        context.delete(itemArray[indexPath.row])
+//        itemArray.remove(at: indexPath.row)
         
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
@@ -115,16 +112,16 @@ class ItemViewController: UITableViewController {
      tableView.reloadData()
     }
     
-//    func loadItems(){
-//        if let data = try? Data(contentsOf: dataFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do {
-//            itemArray = try decoder.decode([ItemModel].self , from: data)
-//        } catch {
-//            print("Error docoding item array, \(error)")
-//        }
-//     }
-//    }
+    func loadItems(){
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        do {
+             itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+        
+    }
     
 }
 
