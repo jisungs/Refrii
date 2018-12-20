@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Refrii-->
+        <!--Items-->
         <scene sceneID="sX5-Ur-1gc">
             <objects>
                 <tableViewController id="q1h-dx-zeK" customClass="ItemViewController" customModule="Refrii" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                             <outlet property="delegate" destination="q1h-dx-zeK" id="kaA-HH-rfR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Refrii" id="iy7-QO-hj1">
+                    <navigationItem key="navigationItem" title="Items" id="iy7-QO-hj1">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ySU-b4-Bmd">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -51,7 +51,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hz-WU-2T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="83"/>
+            <point key="canvasLocation" x="2777" y="83"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X3F-En-8ZT">
@@ -68,12 +68,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="q1h-dx-zeK" kind="relationship" relationship="rootViewController" id="c3t-ev-hjh"/>
+                        <segue destination="LrL-Oo-FYy" kind="relationship" relationship="rootViewController" id="Pt4-JZ-W7s"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qb-14-szN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045.5999999999999" y="83.208395802098963"/>
+            <point key="canvasLocation" x="1169" y="82"/>
+        </scene>
+        <!--Refrii-->
+        <scene sceneID="c2g-Ec-4sB">
+            <objects>
+                <tableViewController id="LrL-Oo-FYy" customClass="CategoryViewController" customModule="Refrii" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mmg-8s-gB6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="iFh-7q-Cae">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iFh-7q-Cae" id="Xcx-J0-xmI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LrL-Oo-FYy" id="nop-xn-ADp"/>
+                            <outlet property="delegate" destination="LrL-Oo-FYy" id="2lm-MQ-B4y"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Refrii" id="xsr-lx-X4U">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IRt-qK-xYY">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="LrL-Oo-FYy" id="YhS-DT-IY0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="q1h-dx-zeK" kind="show" identifier="goToItems" id="S4P-je-F6U"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptm-y0-gf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="83"/>
         </scene>
     </scenes>
 </document>

@@ -39,7 +39,7 @@ class ItemViewController: UITableViewController {
         cell.textLabel?.text = item.title
         
         //Tenary Operator ==>
-        // value = conditino ? valueIfTrue : valueIfFalse
+        // value = conditin ? valueIfTrue : valueIfFalse
         
         cell.accessoryType = item.done ? .checkmark : .none
         
@@ -75,8 +75,6 @@ class ItemViewController: UITableViewController {
         let alert = UIAlertController(title:"Add New Item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Action", style: .default) { (action) in
-        
-            
             
             let newItem = Item(context: self.context)
             newItem.title = textField.text!
@@ -145,12 +143,15 @@ extension ItemViewController : UISearchBarDelegate {
         
         loadItems(with: request)
         
-//        do {
-//            itemArray = try context.fetch(request)
-//        } catch {
-//            print("Error fetching data from context \(error)")
-//        }
-//
-//        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        loadItems()
+        
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
+        
+        
     }
 }
