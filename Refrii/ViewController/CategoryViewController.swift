@@ -17,7 +17,8 @@ class CategoryViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        load()
     }
 
     //MARK: - TableView Datasource Methods
@@ -37,14 +38,49 @@ class CategoryViewController: UITableViewController {
         return cell
     }
     
+    
+    //MARK: - TableView Delegate Methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: "goToItems", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ItemViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categories[indexPath.row]
+        }
+    }
+    
+    
+    
     //MARK: - Data Manipulation Methods
     func save(){
+        
+        do {
+            try context.save()
+        }catch {
+            print("Error saving context \(error)")
+        }
+        
+        tableView.reloadData()
         
     }
     
     func load(){
+        let request : NSFetchRequest<Category> = Category.fetchRequest()
         
+        do {
+            categories = try context.fetch(request)
+        }catch {
+            print("Error loading context \(error)")
+        }
         
+        tableView.reloadData()
     }
     
     //MARK: - Add New Categories
@@ -52,7 +88,7 @@ class CategoryViewController: UITableViewController {
         
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add New Alert", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add New Action", style: .default) { (action) in
             
@@ -75,13 +111,6 @@ class CategoryViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: - TableView Delegate Methods
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        performSegue(withIdentifier: "goToItems", sender: nil)
-    }
+   
     
 }
