@@ -14,9 +14,13 @@
 		9609C3D221C45AEF007E271E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9609C3D121C45AEF007E271E /* Assets.xcassets */; };
 		9609C3D521C45AEF007E271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9609C3D321C45AEF007E271E /* LaunchScreen.storyboard */; };
 		960C94F621CC340D00DAA018 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C94F521CC340D00DAA018 /* CategoryViewController.swift */; };
+		D002DBF47F54C75D6202538F /* Pods_Refrii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF8EDC2D6B572CD8781CA07 /* Pods_Refrii.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BADEDF91778E0FD450832FB /* Pods-Refrii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Refrii.debug.xcconfig"; path = "Target Support Files/Pods-Refrii/Pods-Refrii.debug.xcconfig"; sourceTree = "<group>"; };
+		1EF8EDC2D6B572CD8781CA07 /* Pods_Refrii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Refrii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73E42799CAA5F9EEDE680DF8 /* Pods-Refrii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Refrii.release.xcconfig"; path = "Target Support Files/Pods-Refrii/Pods-Refrii.release.xcconfig"; sourceTree = "<group>"; };
 		9608F74F21C8400100E833DC /* DataModal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModal.xcdatamodel; sourceTree = "<group>"; };
 		9609C3C721C45AED007E271E /* Refrii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609C3CA21C45AED007E271E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,12 +37,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D002DBF47F54C75D6202538F /* Pods_Refrii.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89F68F23028DF23E5131365A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EF8EDC2D6B572CD8781CA07 /* Pods_Refrii.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9603B4C221C65DF500FFB242 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +91,8 @@
 			children = (
 				9609C3C921C45AED007E271E /* Refrii */,
 				9609C3C821C45AED007E271E /* Products */,
+				DB3CEA64101033C5EDA882E6 /* Pods */,
+				89F68F23028DF23E5131365A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +117,16 @@
 			path = Refrii;
 			sourceTree = "<group>";
 		};
+		DB3CEA64101033C5EDA882E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0BADEDF91778E0FD450832FB /* Pods-Refrii.debug.xcconfig */,
+				73E42799CAA5F9EEDE680DF8 /* Pods-Refrii.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9609C3D921C45AEF007E271E /* Build configuration list for PBXNativeTarget "Refrii" */;
 			buildPhases = (
+				1F5CD7AB7FE78A8286CF2E4D /* [CP] Check Pods Manifest.lock */,
 				9609C3C321C45AED007E271E /* Sources */,
 				9609C3C421C45AED007E271E /* Frameworks */,
 				9609C3C521C45AED007E271E /* Resources */,
+				DD94B3D7CDD721F2600F7EF5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +194,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F5CD7AB7FE78A8286CF2E4D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Refrii-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD94B3D7CDD721F2600F7EF5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Refrii/Pods-Refrii-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Refrii/Pods-Refrii-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9609C3C321C45AED007E271E /* Sources */ = {
@@ -320,6 +396,7 @@
 		};
 		9609C3DA21C45AEF007E271E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BADEDF91778E0FD450832FB /* Pods-Refrii.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +415,7 @@
 		};
 		9609C3DB21C45AEF007E271E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73E42799CAA5F9EEDE680DF8 /* Pods-Refrii.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
