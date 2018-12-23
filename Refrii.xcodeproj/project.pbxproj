@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9608F75021C8400100E833DC /* DataModal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9608F74E21C8400100E833DC /* DataModal.xcdatamodeld */; };
 		9609C3CB21C45AED007E271E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609C3CA21C45AED007E271E /* AppDelegate.swift */; };
 		9609C3CD21C45AED007E271E /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609C3CC21C45AED007E271E /* ItemViewController.swift */; };
 		9609C3D021C45AED007E271E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9609C3CE21C45AED007E271E /* Main.storyboard */; };
 		9609C3D221C45AEF007E271E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9609C3D121C45AEF007E271E /* Assets.xcassets */; };
 		9609C3D521C45AEF007E271E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9609C3D321C45AEF007E271E /* LaunchScreen.storyboard */; };
 		960C94F621CC340D00DAA018 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C94F521CC340D00DAA018 /* CategoryViewController.swift */; };
+		96119AD421CEDE4E002CD13F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96119AD321CEDE4E002CD13F /* Item.swift */; };
+		96119AD621CEDE5C002CD13F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96119AD521CEDE5C002CD13F /* Category.swift */; };
 		D002DBF47F54C75D6202538F /* Pods_Refrii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF8EDC2D6B572CD8781CA07 /* Pods_Refrii.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +22,6 @@
 		0BADEDF91778E0FD450832FB /* Pods-Refrii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Refrii.debug.xcconfig"; path = "Target Support Files/Pods-Refrii/Pods-Refrii.debug.xcconfig"; sourceTree = "<group>"; };
 		1EF8EDC2D6B572CD8781CA07 /* Pods_Refrii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Refrii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E42799CAA5F9EEDE680DF8 /* Pods-Refrii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Refrii.release.xcconfig"; path = "Target Support Files/Pods-Refrii/Pods-Refrii.release.xcconfig"; sourceTree = "<group>"; };
-		9608F74F21C8400100E833DC /* DataModal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModal.xcdatamodel; sourceTree = "<group>"; };
 		9609C3C721C45AED007E271E /* Refrii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Refrii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9609C3CA21C45AED007E271E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9609C3CC21C45AED007E271E /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +30,8 @@
 		9609C3D421C45AEF007E271E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9609C3D621C45AEF007E271E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		960C94F521CC340D00DAA018 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		96119AD321CEDE4E002CD13F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		96119AD521CEDE5C002CD13F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,8 @@
 		9603B4C221C65DF500FFB242 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				9608F74E21C8400100E833DC /* DataModal.xcdatamodeld */,
+				96119AD521CEDE5C002CD13F /* Category.swift */,
+				96119AD321CEDE4E002CD13F /* Item.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -123,7 +126,6 @@
 				0BADEDF91778E0FD450832FB /* Pods-Refrii.debug.xcconfig */,
 				73E42799CAA5F9EEDE680DF8 /* Pods-Refrii.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,10 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96119AD421CEDE4E002CD13F /* Item.swift in Sources */,
 				960C94F621CC340D00DAA018 /* CategoryViewController.swift in Sources */,
-				9608F75021C8400100E833DC /* DataModal.xcdatamodeld in Sources */,
 				9609C3CD21C45AED007E271E /* ItemViewController.swift in Sources */,
 				9609C3CB21C45AED007E271E /* AppDelegate.swift in Sources */,
+				96119AD621CEDE5C002CD13F /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,19 +457,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9608F74E21C8400100E833DC /* DataModal.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9608F74F21C8400100E833DC /* DataModal.xcdatamodel */,
-			);
-			currentVersion = 9608F74F21C8400100E833DC /* DataModal.xcdatamodel */;
-			path = DataModal.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9609C3BF21C45AED007E271E /* Project object */;
 }
