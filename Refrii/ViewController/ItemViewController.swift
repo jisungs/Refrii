@@ -15,6 +15,8 @@ class ItemViewController: UITableViewController {
     
     let realm = try! Realm()
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var selectedCategory : Category? {
         didSet {
             loadItems()
@@ -90,6 +92,7 @@ class ItemViewController: UITableViewController {
                     try self.realm.write {
                         let newItem = Item()
                         newItem.title = textField.text!
+                        newItem.dataCreated = Date()
                         currentCategory.items.append(newItem)
                     }
                 } catch {
@@ -125,29 +128,26 @@ class ItemViewController: UITableViewController {
 }// end of viewcontroller
 
 
-//MARK: - Search bar methods
+// MARK: - Search bar methods
 
-//extension ItemViewController : UISearchBarDelegate {
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//
-//        let request : NSFetchRequest<Item> = Item.fetchRequest()
-//
-//        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-//
-//       request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//
-//        loadItems(with: request, predicate: predicate)
-//
-//    }
-//
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        loadItems()
-//
-//        DispatchQueue.main.async {
-//            searchBar.resignFirstResponder()
-//        }
-//
-//
-//    }
-//}
+extension ItemViewController : UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dataCreated", ascending: true)
+         tableView.reloadData()
+        }
+
+
+
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+          loadItems()
+        }
+        
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
+    }
+}
