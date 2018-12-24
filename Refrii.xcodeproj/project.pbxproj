@@ -15,6 +15,7 @@
 		960C94F621CC340D00DAA018 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960C94F521CC340D00DAA018 /* CategoryViewController.swift */; };
 		96119AD421CEDE4E002CD13F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96119AD321CEDE4E002CD13F /* Item.swift */; };
 		96119AD621CEDE5C002CD13F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96119AD521CEDE5C002CD13F /* Category.swift */; };
+		96770E1C21D19429006D7F71 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96770E1B21D19429006D7F71 /* SwipeTableViewController.swift */; };
 		D002DBF47F54C75D6202538F /* Pods_Refrii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF8EDC2D6B572CD8781CA07 /* Pods_Refrii.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		960C94F521CC340D00DAA018 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		96119AD321CEDE4E002CD13F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		96119AD521CEDE5C002CD13F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		96770E1B21D19429006D7F71 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				960C94F521CC340D00DAA018 /* CategoryViewController.swift */,
 				9609C3CC21C45AED007E271E /* ItemViewController.swift */,
+				96770E1B21D19429006D7F71 /* SwipeTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				960C94F621CC340D00DAA018 /* CategoryViewController.swift in Sources */,
 				9609C3CD21C45AED007E271E /* ItemViewController.swift in Sources */,
 				9609C3CB21C45AED007E271E /* AppDelegate.swift in Sources */,
+				96770E1C21D19429006D7F71 /* SwipeTableViewController.swift in Sources */,
 				96119AD621CEDE5C002CD13F /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

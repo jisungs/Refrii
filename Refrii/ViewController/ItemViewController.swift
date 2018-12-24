@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ItemViewController: UITableViewController {
+class ItemViewController: SwipeTableViewController{
     
     var todoItems : Results<Item>?
     
@@ -28,6 +28,8 @@ class ItemViewController: UITableViewController {
     
        print( FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
+        tableView.rowHeight = 80.0
+        
     }
 
     //MARK: - TableView DataSource Method
@@ -38,9 +40,7 @@ class ItemViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-       let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
-        
-        //let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
@@ -121,6 +121,21 @@ class ItemViewController: UITableViewController {
         todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         
         tableView.reloadData()
+    }
+    
+    //MARK: - Delete Manupulation Methods
+    
+    override func updateModel(at indexPath: IndexPath) {
+       
+        if let todoItemDeletion = todoItems?[indexPath.row] {
+            do {
+                try realm.write{
+                    realm.delete(todoItemDeletion)
+                }
+            }catch {
+                print("todoItem delete error \(error)")
+            }
+        }
     }
     
     
