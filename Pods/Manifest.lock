@@ -1,4 +1,5 @@
 PODS:
+  - Floaty (4.1.0)
   - Realm (3.11.2):
     - Realm/Headers (= 3.11.2)
   - Realm/Headers (3.11.2)
@@ -7,20 +8,23 @@ PODS:
   - SwipeCellKit (2.5.0)
 
 DEPENDENCIES:
+  - Floaty (~> 4.1.0)
   - RealmSwift
   - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Floaty
     - Realm
     - RealmSwift
     - SwipeCellKit
 
 SPEC CHECKSUMS:
+  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   Realm: 864477d028db77f7c5a0cba64a4892ad53db128a
   RealmSwift: 12b8262fc08020b47de4fd88eb3d5c9425b34ec7
   SwipeCellKit: d8f2617538ce3021cb0a11d1b93856a06a2f2e20
 
-PODFILE CHECKSUM: c5502b85f82c6cff68b659be5c44ec701a12ef81
+PODFILE CHECKSUM: 87f694d5038b9f7c9ce594bd5af2b6540f22d79b
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.1

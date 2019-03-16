@@ -8,6 +8,7 @@ target 'Refrii' do
 
     pod 'RealmSwift'
     pod 'SwipeCellKit'
+    pod 'Floaty', '~> 4.1.0'
 
 
 

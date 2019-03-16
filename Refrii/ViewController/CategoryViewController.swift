@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Floaty
 
 class CategoryViewController: SwipeTableViewController{
     
@@ -21,6 +22,10 @@ class CategoryViewController: SwipeTableViewController{
         load()
         
         tableView.rowHeight = 80.0
+        
+        Floaty.global.button.addItem(title: "Hello, World!")
+        Floaty.global.show()
+        
     }
 
     //MARK: - TableView Datasource Methods
