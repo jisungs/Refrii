@@ -23,8 +23,8 @@ class CategoryViewController: SwipeTableViewController{
         
         tableView.rowHeight = 80.0
         
-        Floaty.global.button.addItem(title: "Hello, World!")
-        Floaty.global.show()
+        //Add to View flaoty button
+       floatyButton()
         
     }
 
@@ -125,5 +125,13 @@ class CategoryViewController: SwipeTableViewController{
         present(alert, animated: true, completion: nil)
     }
     
+    
+    func floatyButton(){
+        Floaty.global.button.addItem(title: "Hello, World!")
+        Floaty.global.button.addItem(title: "Set Temprature ")
+        Floaty.global.button.addItem(title: "New Category")
+        Floaty.global.button.addItem(title: "New Item")
+        Floaty.global.show()
+    }
 }// end of view controller
 
