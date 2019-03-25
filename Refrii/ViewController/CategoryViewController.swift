@@ -127,11 +127,32 @@ class CategoryViewController: SwipeTableViewController{
     
     
     func floatyButton(){
-        Floaty.global.button.addItem(title: "Hello, World!")
-        Floaty.global.button.addItem(title: "Set Temprature ")
-        Floaty.global.button.addItem(title: "New Category")
-        Floaty.global.button.addItem(title: "New Item")
+        //let floaty = Floaty()
+        
+        Floaty.global.button.addItem("add New Storage", icon:UIImage(named:"fridge.png")!, handler:{
+            item in let alert = UIAlertController(title: "Add New Storage", message:"",preferredStyle:.alert)
+            var textField = UITextField()
+            
+            let action = UIAlertAction(title: "Add New Action", style: .default) { (action) in
+                
+                let newCategory = Category()
+                newCategory.name = textField.text!
+                self.save(category: newCategory)
+            }
+            
+            alert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "Add New Category"
+                textField = alertTextField
+            }
+            
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        })
+        
         Floaty.global.show()
+        
     }
 }// end of view controller
 
